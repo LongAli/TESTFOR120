@@ -1,0 +1,197 @@
+
+<html>
+<head>
+	<title>Home</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="/css/introHCI.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+
+<!--FB account log in -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/introHCI.js"></script>
+
+	{{!-- <script src="/js/facebook.js"></script> --}}
+	{{!-- <script src="/js/facebook.js"></script>
+	<script src="/js/loadStuff.js"></script> --}}
+
+</head>
+
+
+<body>
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v10.0"
+		nonce="zp9mSAr7"></script>
+	<div class="container">
+		
+		<!--fixed menu top--> 
+			<!--Navbar-->
+
+		<div class="jumbotron fixed-top">
+			<h1 id="name">&nbsp;&nbsp;&nbsp;&nbsp;Activity log</h1>
+			<div class="w-80 top-button fixed-top">
+					<div class="btn-group">
+						<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+							<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#F59292" class="bi bi-grid-fill" viewBox="0 0 16 16">
+								<path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/>
+							</svg>
+						</button>
+						<div class="dropdown-menu dropdown-menu-right">
+						<a href="/index"> <button class="dropdown-item active" type="button">Home</button> </a>
+                            <a href="/setting"> <button class="dropdown-item" type="button">Setting</button></a>
+							<a href="/about"> <button class="dropdown-item" type="button">About</button></a>
+							<a href="/logIn"> <button class="dropdown-item" type="button"
+                                style="background-color: grey; color: white;">Log Out</button></a>						</div>
+					</div>
+			</div>
+		</div>
+		{{!-- <p class="facebookLogin">Please login through Facebook</p>
+		<fb:login-button id="fb_button" scope="public_profile,email" onlogin="checkLoginState();">
+		</fb:login-button> --}}
+		
+		<!-- log in w/facebook
+			<p class="facebookLogin">Please login through Facebook</p>
+			<fb:login-button id="fb_button" scope="public_profile,email" onlogin="checkLoginState();">
+			</fb:login-button>
+		
+
+		<div id="facebookPhoto" class="profile">
+			<h3>Profile Photo</h3>
+			<img id="photo" class='img-responsive' src="http://hci.stanford.edu/courses/cs547/Resources/Pictures/klemmer_grad.jpg" />
+		</div>
+		--> 
+
+		<br><br><br><br><br><br><br><br>
+	
+	<form id="addFriendForm" role="form" method="get" action="/add"></form>
+	
+		{{#each toLog}}
+		<div class="card w-80 card-spacing" id={{ID}}>
+			<div class="card-body">
+				<div class="card-iteminline">
+
+					<h2 class="card-title">{{Activity}}</h2>
+					<div id="share-link">
+						{{!-- <button type="button" class="btn btn-primary btn-block btnShare" data-href="https://a6-lacuna.herokuapp.com/" data-title="Lacuna"> --}}
+							
+							<a target="_blank"
+								href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fa6-lacuna.herokuapp.com%2F&amp;src=sdkpreparse"
+								class="fb-xfbml-parse-ignore">
+								<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#F59292" class="bi bi-share" viewBox="0 0 16 16">
+								
+									<path
+										d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5zm-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z" />
+								</svg>
+							</a>
+						{{!-- </button> --}}
+					</div>
+				</div>
+				<h3 class="card-subtitle mb-2 text-muted" >{{minTime}} minutes</h3>
+			</div>
+				<img class="card-img-top" src="{{Image}}" alt="Unsplash image">
+			<div class="card-body">
+				<div class="details card-text">
+					<h4>{{Description}}</h4>
+				</div>
+				<br>
+				<div class="card-iteminline">
+					<button type="btn-secondary" data-toggle="modal" data-target="#myModal{{ID}}">
+						<a href="#" class="card-link">
+							 Delete
+						</a>
+						</button>
+
+					<!--REDO MODAL-->
+					<div class="container">
+
+						 <!-- Trigger the modal with a button -->
+						 <!-- Button to Open the Modal -->
+
+						<!-- The Modal -->
+						<div class="modal" id="myModal{{ID}}">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+
+						      <!-- Modal Header -->
+						      <div class="modal-header">
+						        <h4 class="modal-title">Are you sure you wish to delete this activity?</h4>
+						        <button type="button" class="close" data-dismiss="modal">&times;</button>
+						      </div>
+
+						      <!-- Modal body -->
+						      <div class="modal-body">
+						        This change cannot be undone.
+						      </div>
+
+						      <!-- Modal footer -->
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-danger delete" data-dismiss="modal" id={{ID}}>
+									Delete
+								</button>
+						      </div>
+
+						    </div>
+						  </div>
+						</div>
+					</div>
+
+					<!--ENDmodal for delete-->
+
+					<a href="/activity/{{ID}}" class="btn btn-primary again">DO IT AGAIN</a> 
+				</div>
+					
+			</div>
+		</div>
+			
+		{{/each}}
+
+		<br><br><br><br><br><br><br><br>
+
+		<!--button nav-->
+		<a href="/filter">
+			<div class="fixed-bottom">
+					<div class="home-bottom">
+						<button type="button" class="btn-primary w-75 primarybtn">
+							Get new idea!
+						</button>
+					</div>
+			</div>
+		</a>
+		</form>
+	</div>
+
+<h4 id='myText' style="text-align: center;">No Activities Completed.</h4>
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player id='myArrow' src="https://assets1.lottiefiles.com/private_files/lf30_va0doo4d.json"  background="transparent"  speed="1"  style="width: 150px; height: 150px; transform: rotate(-30deg); position: absolute; bottom: 100px; right: 25px;"  loop autoplay></lottie-player>
+
+<script>
+	$('.delete').click(function () {
+		var currentIDs = JSON.parse(localStorage.getItem("saveIDarr"));
+		var targetID = $(this).attr("id");
+		localStorage.setItem("targetID", targetID);
+		window.location.href = '/deleteact?targetID='+targetID;	
+	
+    });	
+		
+	var array = JSON.parse(localStorage.getItem("saveIDarr"));
+   if(array != null){
+    	$('#myArrow').hide();
+    	$('#myText').hide();
+    }
+    
+    
+</script>
+
+</body>
+</html>
+
