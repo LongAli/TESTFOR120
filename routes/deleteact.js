@@ -8,7 +8,10 @@ var activities = require('../activites.json');
 exports.deleteActivity = function(request, response) {
 
 	if (request.query['targetID']) {
-      var targetJson = activities.activites.filter((a) => a.ID == request.query['targetID'])[0];
+      var targetJson = activities.activites.filter(function(a) {
+			return a.ID == request.query['targetID'];
+      })[0];
+      
       const index = data.toLog.indexOf(targetJson);
       console.log(request.query['targetID'],index,data.toLog);
 		if (index > -1) {

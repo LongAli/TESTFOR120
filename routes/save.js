@@ -6,7 +6,9 @@ var data = require('../actLog.json');
 var activities = require('../activites.json');
 
 function search(ele) {
-	var searchCompleted = activities.activites.filter((a) => a.ID == ele);
+	var searchCompleted = activities.activites.filter(function(a){
+		return a.ID == ele;
+	});
 	return searchCompleted;
 }
 

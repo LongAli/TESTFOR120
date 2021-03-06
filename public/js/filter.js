@@ -6,7 +6,10 @@ var selectTag = window.localStorage.getItem('currentSelect');
 //console.log(selectTime);
 
 function filterByTime(time) {
-	const results = activities.activites.filter((element) => element.minTime <= time);
+
+	const results = activities.activites.filter(function(element) {
+		return element.minTime <= time;
+	});
 	//console.log(results);
 	return results;
 }

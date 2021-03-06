@@ -10,7 +10,6 @@ var data = require('../activites.json');
 // };
 
 exports.activityInfo = function(request, response) {
-	// response.render('activity', data.toLog.forEach((e) => e.ID));
 	// var objectStuff = Object.keys(data);
 
 	// var objectStuff = Object.keys(data);

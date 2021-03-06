@@ -16,7 +16,9 @@ var activities = require('../activites.json');
 // tryAgainBtn.addEventListener('click', randomize);
 
 function filterByTime(time) {
-	var results = activities.activites.filter((element) => element.minTime <= time);
+	const results = activities.activites.filter(function(element) {
+		return element.minTime <= time;
+	});
 	return results;
 }
 
